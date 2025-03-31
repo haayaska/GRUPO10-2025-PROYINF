@@ -1,3 +1,5 @@
+## GRUPO10-2025-PROYINF 
+
 Este es el respositorio de GRUPO10-2025-PROYINF, cuyos integrantes son:
 
 *Integrante 1 - 202490094-3
