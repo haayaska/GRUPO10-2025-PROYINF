@@ -1,11 +1,27 @@
-version: "3.4"
+version: "3.8"
 
 services:
   api_preguntas:
-    image: api_preguntas
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=BD10_PREGUNTAS
+      - DB_PORT=3306
 
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=BD10_PREGUNTAS
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
